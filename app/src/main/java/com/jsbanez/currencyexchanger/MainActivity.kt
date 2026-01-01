@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -137,6 +138,7 @@ fun ExchangeScreen(modifier: Modifier = Modifier) {
                         .fillMaxWidth()
                         .clip(RoundedCornerShape(16.dp))
                         .background(Color.White)
+                        .border(1.dp, Color(0xFFE0E0E0), RoundedCornerShape(16.dp))
                         .horizontalScroll(rememberScrollState())
                         .padding(16.dp),
                     horizontalArrangement = Arrangement.spacedBy(16.dp)
@@ -367,6 +369,7 @@ private fun ExchangeCard(
             .fillMaxWidth()
             .clip(RoundedCornerShape(16.dp))
             .background(Color.White)
+            .border(1.dp, Color(0xFFE0E0E0), RoundedCornerShape(16.dp))
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
