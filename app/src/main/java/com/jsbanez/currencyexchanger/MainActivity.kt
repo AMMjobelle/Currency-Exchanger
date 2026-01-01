@@ -200,8 +200,19 @@ fun ExchangeScreen(modifier: Modifier = Modifier) {
                     iconText = "↑"
                 )
 
-
-                Spacer(modifier = Modifier.height(5.dp))
+                // Divider between SELL and RECEIVE cards
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 8.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Divider(
+                        modifier = Modifier.fillMaxWidth(0.9f),
+                        thickness = 1.dp,
+                        color = Color(0xFFE0E0E0)
+                    )
+                }
 
                 // RECEIVE Card
                 ExchangeCard(
