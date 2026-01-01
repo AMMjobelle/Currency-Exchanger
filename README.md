@@ -81,10 +81,6 @@ A modern Android application for real-time currency exchange with live rates and
 ### Installation
 
 1. **Clone the repository**
-   ```bash
-   git clone <your-repository-url>
-   cd CurrencyExchanger
-   ```
 
 2. **Open in Android Studio**
     - Open Android Studio
@@ -94,7 +90,7 @@ A modern Android application for real-time currency exchange with live rates and
 
 3. **Run the app**
     - Connect an Android device or start an emulator
-    - Click the "Run" button or press `Shift + F10`
+    - Click the "Run" button or press
 
 ## 🏗️ Project Structure
 
@@ -238,33 +234,9 @@ Run specific test classes:
 - No transaction history feature
 - No offline exchange rate caching
 
-## 🔮 Future Enhancements
-
-- [ ] Persistent storage for balances (Room Database)
-- [ ] Transaction history
-- [ ] Charts and analytics
-- [ ] Multiple currency pair favorites
-- [ ] Exchange rate alerts
-- [ ] Dark mode support
-- [ ] Widget support
-- [ ] Offline exchange rate caching
-- [ ] Currency conversion calculator mode
-
 ## 👨‍💻 Developer
 
 **JSBanez**
-
-## 📄 License
-
-This project is created for educational and demonstration purposes.
-
-## 🙏 Acknowledgments
-
-- Exchange rates provided by public API
-- Material Design 3 guidelines by Google
-- Jetpack Compose by Google
-- Android community for best practices and libraries
-
 ---
 
 **Built with ❤️ using Kotlin and Jetpack Compose**
