@@ -110,7 +110,7 @@ fun ExchangeScreen(modifier: Modifier = Modifier) {
                 if (!state.isNetworkAvailable) {
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
-                        "⚠️ Offline - Rates may be outdated",
+                        "⚠️ No internet connection",
                         color = Color(0xFFF39C12),
                         style = MaterialTheme.typography.bodySmall,
                         fontWeight = FontWeight.Medium,
@@ -341,7 +341,7 @@ fun ExchangeScreen(modifier: Modifier = Modifier) {
             onDismissRequest = { vm.dismissNetworkDialog() },
             title = { Text("No Internet Connection") },
             text = {
-                Text("Please check your internet connection and try again. Exchange rates cannot be updated without an internet connection.")
+                Text("Please check your connection and try again.")
             },
             confirmButton = {
                 TextButton(onClick = { vm.retryNetworkOperation() }) {
