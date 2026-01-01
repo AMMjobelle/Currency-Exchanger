@@ -39,6 +39,7 @@ A modern Android application for real-time currency exchange with live rates and
 - **Jetpack Compose**: Modern declarative UI framework
 - **Material Design 3**: Latest Material Design components
 - **Android SDK 31+**: Target SDK 36
+- **Firebender AI
 
 ### Architecture & Libraries
 
