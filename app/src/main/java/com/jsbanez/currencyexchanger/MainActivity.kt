@@ -203,25 +203,6 @@ fun ExchangeScreen(modifier: Modifier = Modifier) {
 
                 Spacer(modifier = Modifier.height(5.dp))
 
-                /** SWAP ICON just in case :) **/
-//                Box(
-//                    modifier = Modifier.fillMaxWidth(),
-//                    contentAlignment = Alignment.Center
-//                ) {
-//                    Box(
-//                        modifier = Modifier
-//                            .clip(CircleShape)
-//                            .background(Color.White)
-//                            .padding(12.dp)
-//                    ) {
-//                        Text(
-//                            text = "⇅",
-//                            fontSize = 24.sp,
-//                            color = Color(0xFF5D6D7E)
-//                        )
-//                    }
-//                }
-
                 // RECEIVE Card
                 ExchangeCard(
                     label = "RECEIVE",
