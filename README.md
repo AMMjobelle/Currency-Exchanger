@@ -4,7 +4,7 @@ A modern Android application for real-time currency exchange with live rates and
 
 ## 📱 Features
 
-- **Real-Time Exchange Rates**: Automatically fetches and updates currency exchange rates every 15
+- **Real-Time Exchange Rates**: Automatically fetches and updates currency exchange rates every 5
   seconds
 - **Multi-Currency Support**: Support for multiple currencies (EUR, USD, GBP, JPY, and more)
 - **Balance Management**: Track balances across multiple currencies
