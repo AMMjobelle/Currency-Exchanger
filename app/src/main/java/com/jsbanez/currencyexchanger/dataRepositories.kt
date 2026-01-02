@@ -17,6 +17,8 @@ class BalancesRepositoryImpl : BalancesRepository {
     override fun getBalances(): BalancesDomain = balances
 
     override fun update(balances: BalancesDomain) {
-        this.balances = balances
+
+        val sanitized = balances.values.mapValues { (_, value) -> maxOf(0.0, value) }
+        this.balances = BalancesDomain(sanitized)
     }
 }
