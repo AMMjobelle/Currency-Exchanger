@@ -15,13 +15,6 @@ import java.net.UnknownHostException
 import java.net.ConnectException
 import java.net.SocketTimeoutException
 
-/**
- * Simple ViewModel that:
- * - Holds balances for multiple currencies (initially 1000 EUR)
- * - Periodically fetches FX rates from a public API
- * - Performs exchanges ensuring no negative balances
- * - Monitors network connectivity and shows appropriate dialogs
- */
 open class ExchangeViewModel(private val context: Context? = null) : ViewModel() {
 
     data class UiState(
@@ -43,7 +36,6 @@ open class ExchangeViewModel(private val context: Context? = null) : ViewModel()
 
     private var pollingJob: Job? = null
 
-    // Network connectivity manager
     private val networkManager = context?.let { NetworkConnectivityManager(it) }
 
     private val handler = CoroutineExceptionHandler { _, throwable ->
@@ -68,10 +60,8 @@ open class ExchangeViewModel(private val context: Context? = null) : ViewModel()
 
     init {
         startRatesPolling()
-        // initialize balances from repo (keeps single source of truth)
         _state.update { it.copy(balances = balancesRepository.getBalances().values) }
 
-        // Start monitoring network connectivity
         networkManager?.let { manager ->
             viewModelScope.launch {
                 manager.observeNetworkState().collect { isConnected ->
@@ -93,7 +83,6 @@ open class ExchangeViewModel(private val context: Context? = null) : ViewModel()
     }
 
     fun setInputAmount(value: String) {
-        // allow only numbers and dot
         val sanitized = value.replace(',', '.').filter { it.isDigit() || it == '.' }
         _state.update { it.copy(inputAmount = sanitized) }
     }
@@ -138,6 +127,11 @@ open class ExchangeViewModel(private val context: Context? = null) : ViewModel()
     }
 
     fun performExchange(): Boolean {
+        if (networkManager?.isNetworkAvailable() == false || !state.value.isNetworkAvailable) {
+            _state.update { it.copy(showNetworkDialog = true) }
+            return false
+        }
+
         val amount = state.value.inputAmount.toDoubleOrNull() ?: return false
         if (amount <= 0) return false
         val sell = state.value.sellCurrency
@@ -150,14 +144,12 @@ open class ExchangeViewModel(private val context: Context? = null) : ViewModel()
         return ok
     }
 
-    // conversion moved to use case
-
     private fun startRatesPolling() {
         pollingJob?.cancel()
         pollingJob = viewModelScope.launch(Dispatchers.IO + handler) {
             while (true) {
                 fetchRatesOnce()
-                delay(5_000) // refresh every 5 seconds
+                delay(5_000)
             }
         }
     }

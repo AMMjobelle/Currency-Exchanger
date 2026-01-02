@@ -120,7 +120,6 @@ fun ExchangeScreen(modifier: Modifier = Modifier) {
                 }
             }
 
-            // MY BALANCES Section
             Column(
                 modifier = Modifier.fillMaxWidth(),
                 verticalArrangement = Arrangement.spacedBy(10.dp)
@@ -177,7 +176,6 @@ fun ExchangeScreen(modifier: Modifier = Modifier) {
                 }
             }
 
-            // CURRENCY EXCHANGE Section
             Column(
                 modifier = Modifier.fillMaxWidth(),
                 verticalArrangement = Arrangement.spacedBy(10.dp)
@@ -202,7 +200,6 @@ fun ExchangeScreen(modifier: Modifier = Modifier) {
                     iconText = "↑"
                 )
 
-                // Divider between SELL and RECEIVE cards
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -216,7 +213,6 @@ fun ExchangeScreen(modifier: Modifier = Modifier) {
                     )
                 }
 
-                // RECEIVE Card
                 ExchangeCard(
                     label = "RECEIVE",
                     amount = quote?.let { String.format("%.10f", it) } ?: "0.00",
@@ -229,7 +225,6 @@ fun ExchangeScreen(modifier: Modifier = Modifier) {
                     iconText = "↓"
                 )
 
-                // Live Rate Display !!!
                 if (quote != null && state.inputAmount.toDoubleOrNull() != null) {
                     val rate = if (state.inputAmount.toDoubleOrNull()!! > 0) {
                         quote / state.inputAmount.toDoubleOrNull()!!
@@ -254,7 +249,6 @@ fun ExchangeScreen(modifier: Modifier = Modifier) {
 
             Spacer(modifier = Modifier.height(4.dp))
 
-            // SUBMIT Button
             ElevatedButton(
                 onClick = {
                     if (vm.performExchange()) {
@@ -315,7 +309,6 @@ fun ExchangeScreen(modifier: Modifier = Modifier) {
         }
     }
 
-    // Success Dialog
     if (showDialog) {
         AlertDialog(
             onDismissRequest = { showDialog = false },
@@ -329,7 +322,6 @@ fun ExchangeScreen(modifier: Modifier = Modifier) {
         )
     }
 
-    // Network connectivity dialog
     if (state.showNetworkDialog) {
         AlertDialog(
             onDismissRequest = { vm.dismissNetworkDialog() },
@@ -403,7 +395,6 @@ private fun ExchangeCard(
 
             Spacer(modifier = Modifier.width(12.dp))
 
-            // Amount Input
             if (isReadOnly) {
                 Text(
                     text = amount,
@@ -446,7 +437,6 @@ private fun ExchangeCard(
 
             Spacer(modifier = Modifier.width(8.dp))
 
-            // Currency Dropdown
             var expanded by remember { mutableStateOf(false) }
 
             ExposedDropdownMenuBox(

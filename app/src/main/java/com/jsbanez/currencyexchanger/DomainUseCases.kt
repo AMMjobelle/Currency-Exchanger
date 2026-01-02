@@ -37,7 +37,6 @@ class PerformExchangeUseCase(
         val received = convert.convert(amount, sell, buy, rates) ?: return false
         val current = balancesRepo.getBalances().values.toMutableMap()
         val newSell = (current[sell] ?: 0.0) - amount
-
         if (newSell < 0) return false
         current[sell] = maxOf(0.0, newSell)
         current[buy] = (current[buy] ?: 0.0) + received
