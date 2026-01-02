@@ -157,7 +157,7 @@ open class ExchangeViewModel(private val context: Context? = null) : ViewModel()
         pollingJob = viewModelScope.launch(Dispatchers.IO + handler) {
             while (true) {
                 fetchRatesOnce()
-                delay(15_000) // refresh every 15 seconds
+                delay(5_000) // refresh every 5 seconds
             }
         }
     }

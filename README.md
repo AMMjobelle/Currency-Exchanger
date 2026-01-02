@@ -141,10 +141,10 @@ private var balances = BalancesDomain(values = mapOf("EUR" to 1000.0))
 
 ### Rate Refresh Interval
 
-Exchange rates are refreshed every 15 seconds (configurable in `ExchangeViewModel.kt`):
+Exchange rates are refreshed every 5 seconds (configurable in `ExchangeViewModel.kt`):
 
 ```kotlin
-delay(15_000) // refresh every 15 seconds
+delay(5_000) // refresh every 5 seconds
 ```
 
 ## 🧪 Testing
